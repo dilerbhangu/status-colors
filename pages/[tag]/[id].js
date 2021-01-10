@@ -1,15 +1,11 @@
-// import { useRouter } from "next/router";
-// import { fetchAPI } from "../../lib/api";
+import { useRouter } from "next/router";
+import { fetchAPI } from "../../lib/api";
 
-// export default function Page({ data }) {
-//   const router = useRouter();
-//   if (router.isFallback) return <div>Loading...</div>;
-//   return (
-//     <div>
-//       <h1>first page {data[0].text}</h1>
-//     </div>
-//   );
-// }
+export default function Page({ data }) {
+  //   const router = useRouter();
+  //   if (router.isFallback) return <div>Loading...</div>;
+  return <div>{/* //       <h1>first page {data[0].text}</h1> */}</div>;
+}
 
 // export async function getStaticPaths(context) {
 //   return {
