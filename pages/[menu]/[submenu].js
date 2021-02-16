@@ -17,13 +17,13 @@ export default function Page({ data, menu_items, likeds, totalPosts }) {
   //     data = data[0].posts;
   //   }
   // }
+  if (router.isFallback) return <div>Loading...</div>;
+
   const tagList = [];
   const sub_menu_items_filter = menu_items.filter(
     (menu_item) => menu_item.Menu_ID === router.query.menu
   );
   const sub_menu_items = sub_menu_items_filter[0].menu_sub_items;
-
-  if (router.isFallback) return <div>Loading...</div>;
 
   sub_menu_items.map((key) => {
     tagList.push({

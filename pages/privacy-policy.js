@@ -1,11 +1,6 @@
-import Head from "next/head";
 import { fetchAPI } from "../lib/api";
-import Cards from "../components/card";
-import Pagination from "../components/Pagination";
 import Navbar from "../components/Navbar";
-import TagList from "../components/TagList";
 import Footer from "../components/Footer";
-import Page from "./[menu]/[submenu]/[id]";
 import { useEffect } from "react";
 
 function privacy_policy({ data, menu_items, menu_sub_items, likeds }) {
