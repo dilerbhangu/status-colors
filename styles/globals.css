@@ -1,6 +1,16 @@
 /* ./styles/globals.css */
-@import url("https://fonts.googleapis.com/css2?family=Redressed&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Redressed&display=swap"); */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .scrollbars-hidden::-webkit-scrollbar {
+    display: none;
+  }
+
+  .h-menu-container {
+    height: calc(85vh - 10px);
+  }
+}

@@ -1,3 +1,4 @@
+// import "./public/email-pattern";
 module.exports = {
   purge: [],
   darkMode: false, // or 'media' or 'class'
@@ -5,6 +6,9 @@ module.exports = {
     extend: {
       fontFamily: {
         logo: ["Redressed"],
+      },
+      backgroundImage: {
+        bg_image: "url('/email-pattern.png')",
       },
     },
   },

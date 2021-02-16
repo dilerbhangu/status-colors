@@ -1,30 +1,15 @@
-import Head from "next/head";
-import { fetchAPI } from "../lib/api";
-import Cards from "../components/card";
-import Pagination from "../components/Pagination";
-import Navbar from "../components/Navbar";
-import TagList from "../components/TagList";
-import Footer from "../components/Footer";
-import Page from "./[menu]/[submenu]/[id]";
+import { Router, useRouter } from "next/router";
+import { fetchAPI } from "../../lib/api";
+import Cards from "../../components/card";
+import Navbar from "../../components/Navbar";
+import TagList from "../../components/TagList";
+import Footer from "../../components/Footer";
+import { useState } from "react";
+import Pagination from "../../components/Pagination";
 
-export default function Home({
-  data,
-  menu_items,
-  menu_sub_items,
-  likeds,
-  totalPosts,
-}) {
-  const tagList = [];
+export default function Page({ data, menu_items, likeds, totalPosts }) {
+  const router = useRouter();
   const endPage = Math.ceil(totalPosts / 6);
-
-  menu_sub_items.map((key) => {
-    tagList.push({
-      tagId: key.subitem_id,
-      Menu_ID: key.menu_item.Menu_ID,
-      tagName: key.subitem_name,
-      page: "index",
-    });
-  });
 
   // if (data !== undefined) {
   //   data = [...data];
@@ -32,6 +17,25 @@ export default function Home({
   //     data = data[0].posts;
   //   }
   // }
+  const tagList = [];
+  const sub_menu_items_filter = menu_items.filter(
+    (menu_item) => menu_item.Menu_ID === router.query.menu
+  );
+  const sub_menu_items = sub_menu_items_filter[0].menu_sub_items;
+
+  if (router.isFallback) return <div>Loading...</div>;
+
+  sub_menu_items.map((key) => {
+    tagList.push({
+      tagId: key.subitem_id,
+      Menu_ID: router.query.menu,
+      tagName: key.subitem_name,
+      page: "",
+    });
+  });
+
+  const subMenu = router.query.submenu;
+  const menu = router.query.menu;
 
   function findLike(e, d) {
     if (e.status_id === d) {
@@ -48,12 +52,10 @@ export default function Home({
         </div>
 
         <div className="flex flex-col mt-32 min-h-screen">
-          {/* <Cards key="aa1" />
-          <Cards key="aa2" /> */}
-          {data.map((d, i) => {
+          {data.map((d) => {
             return (
               <Cards
-                key={i}
+                key={d.id}
                 id={d.id}
                 text={d.text}
                 like={likeds.find((e) => findLike(e, d.id))}
@@ -73,18 +75,18 @@ export default function Home({
   );
 }
 
-// export default function Home({ data }) {
-//   // console.log("data", data);
-//   return (
-//     <div>
-//       <Card author="Bhangu" />
-//       <Pagination />
-//       {/* <h1>Hello Next {data[0].text}</h1> */}
-//     </div>
-//   );
-// }
+export async function getStaticPaths(context) {
+  return {
+    paths: [
+      { params: { menu: "status", submenu: "alone" } },
+      { params: { menu: "status", submenu: "latest" } },
+    ],
+    // fallback: false,
+    fallback: true,
+  };
+}
 
-export async function getStaticProps(context) {
+export async function getStaticProps({ params }) {
   const limit = 6;
   const start = 0;
   const end = 1;
@@ -93,9 +95,8 @@ export async function getStaticProps(context) {
   const endIndex = end * limit;
 
   const menu_items = await fetchAPI("/menu-items");
-  const menu_sub_items = await fetchAPI("/menu-sub-items");
   const likeds = await fetchAPI("/likeds");
-  const path = "/tags?tag=" + "latest";
+  const path = "/tags?tag=" + params.submenu;
   // const data = await fetchAPI(path);
   const dataTemp = await fetchAPI(path);
 
@@ -110,6 +111,6 @@ export async function getStaticProps(context) {
     };
   }
   return {
-    props: { data, menu_items, menu_sub_items, likeds, totalPosts },
+    props: { data, menu_items, likeds, totalPosts },
   };
 }
