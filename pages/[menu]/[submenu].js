@@ -112,5 +112,6 @@ export async function getStaticProps({ params }) {
   }
   return {
     props: { data, menu_items, likeds, totalPosts },
+    revalidate: 60,
   };
 }
