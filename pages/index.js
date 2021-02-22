@@ -111,6 +111,6 @@ export async function getStaticProps(context) {
   }
   return {
     props: { data, menu_items, menu_sub_items, likeds, totalPosts },
-    revalidate: 60,
+    revalidate: 1,
   };
 }
