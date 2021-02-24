@@ -71,7 +71,6 @@ function Cards({ id, text, like }) {
         likes: liked + 1,
       };
     } else {
-      console.log("e", e);
       path = "/likeds/" + likeBtnId;
       reqMethod = "PUT";
       req = {
@@ -79,8 +78,8 @@ function Cards({ id, text, like }) {
       };
     }
 
-    await putAPI(path, req, reqMethod);
     setLiked(liked + 1);
+    await putAPI(path, req, reqMethod);
   }
 
   return (
@@ -111,7 +110,7 @@ function Cards({ id, text, like }) {
                 >
                   <path
                     strokeLinecap="round"
-                    stroke-linejoin="round"
+                    strokeLinejoin="round"
                     strokeWidth="1"
                     d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
                   />
@@ -138,7 +137,9 @@ function Cards({ id, text, like }) {
                 </svg>
               </button>
             )}
-            <div id={likeBtnId}>{liked}</div>
+            <div id={likeBtnId} className=" self-center">
+              {liked}
+            </div>
           </div>
         </div>
       </div>
