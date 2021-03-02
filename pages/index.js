@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { fetchAPI } from "../lib/api";
 import Cards from "../components/card";
 import Pagination from "../components/Pagination";
@@ -6,6 +5,7 @@ import Navbar from "../components/Navbar";
 import TagList from "../components/TagList";
 import Footer from "../components/Footer";
 import Page from "./[menu]/[submenu]/[id]";
+import Head from "next/head";
 
 export default function Home({
   data,
@@ -26,13 +26,6 @@ export default function Home({
     });
   });
 
-  // if (data !== undefined) {
-  //   data = [...data];
-  //   if (data.length > 0) {
-  //     data = data[0].posts;
-  //   }
-  // }
-
   function findLike(e, d) {
     if (e.status_id === d) {
       return e;
@@ -48,8 +41,6 @@ export default function Home({
         </div>
 
         <div className="flex flex-col mt-32 min-h-screen">
-          {/* <Cards key="aa1" />
-          <Cards key="aa2" /> */}
           {data.map((d, i) => {
             return (
               <Cards
@@ -109,8 +100,24 @@ export async function getStaticProps(context) {
       notFound: true,
     };
   }
+
+  const title = "The Status Wiki";
+  const descr =
+    "The Status Wiki is one of largest library of best status all around the world.You can find status as per your mood. Love,Attitude,Romantic,Hate etc. we've tried to cover every possible combination of various status ";
+  const keywords =
+    "Latest Status, Whatsapp Status, Instagram Status , Signal Status, Facebook Status, Romantic Status, Birthday Wishes Status";
+
   return {
-    props: { data, menu_items, menu_sub_items, likeds, totalPosts },
+    props: {
+      data,
+      menu_items,
+      menu_sub_items,
+      likeds,
+      totalPosts,
+      title,
+      descr,
+      keywords,
+    },
     revalidate: 60,
   };
 }

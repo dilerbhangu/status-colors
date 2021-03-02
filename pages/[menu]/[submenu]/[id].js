@@ -116,8 +116,29 @@ export async function getStaticProps({ params }) {
     };
   }
 
+  const title =
+    params.submenu +
+    " status for whatsapp,instagram,fb,signal,snapchap-The Status Wiki";
+  const descr =
+    "Best " +
+    params.submenu +
+    " status. All your favourite " +
+    params.submenu +
+    " status in english for whatsapp,fb,instagram,signal,telegram and snapchat";
+  const keywords =
+    params.submenu +
+    " Status, " +
+    params.submenu +
+    " Status in english, " +
+    "Best " +
+    params.submenu +
+    " Status," +
+    "Ultimate " +
+    params.submenu +
+    " Status,";
+
   return {
-    props: { data, menu_items, likeds, totalPosts },
+    props: { data, menu_items, likeds, totalPosts, title, descr, keywords },
     revalidate: 60,
   };
 }
