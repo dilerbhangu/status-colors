@@ -13,7 +13,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        logo: ["Redressed"],
+        // logo: ["Redressed"],
+        noto_sans: ["Noto Sans KR"],
       },
       backgroundImage: {
         bg_image: "url('/email-pattern.png')",

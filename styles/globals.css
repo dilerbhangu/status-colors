@@ -1,5 +1,5 @@
 /* ./styles/globals.css */
-/* @import url("https://fonts.googleapis.com/css2?family=Redressed&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
 
 @tailwind base;
 @tailwind components;

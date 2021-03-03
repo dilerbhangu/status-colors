@@ -94,7 +94,6 @@ function Pagination({ endPage }) {
           </div>
         </div>
       </div>
-      )
     </>
   );
 }

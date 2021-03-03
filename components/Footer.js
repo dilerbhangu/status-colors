@@ -24,13 +24,13 @@ function Footer() {
         >
           CONTACT US
         </div>
-        <div
+        {/* <div
           className="text-sm font-medium underline  transform rotate-180 cursor-pointer md:p-2"
           id="site_map"
           onClick={(e) => btnClick(e)}
         >
           SITE MAP
-        </div>
+        </div> */}
         <div
           className="text-sm font-medium underline transform rotate-180 cursor-pointer md:p-2"
           id="privacy"

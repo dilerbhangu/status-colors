@@ -85,7 +85,7 @@ function Cards({ id, text, like }) {
   return (
     <>
       <div className="flex shadow-sm rounded-xl p-6 mx-6 my-4 flex-col border-gray-200 border-2 bg-white">
-        <p className=" text-lg font-light text-black" id={id}>
+        <p className="text-lg text-black font-noto_sans" id={id}>
           {text}
         </p>
         <div className="flex justify-between items-center pt-4">
