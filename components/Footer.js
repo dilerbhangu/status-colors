@@ -16,7 +16,7 @@ function Footer() {
 
   return (
     <>
-      <div className="w-screen flex p-4 bg-white justify space-x-4 justify-end transform rotate-180 shadow-lg ">
+      <div className="w-screen flex p-4 bg-white justify space-x-4 justify-end transform rotate-180 shadow-lg  ">
         <div
           className="text-sm font-medium underline  transform rotate-180 cursor-pointer md:p-2"
           id="contact_us"

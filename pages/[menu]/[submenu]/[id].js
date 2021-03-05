@@ -12,7 +12,7 @@ export default function Page({ data, menu_items, likeds, totalPosts }) {
   if (router.isFallback) {
     return <div>Loading...</div>;
   }
-  const endPage = Math.ceil(totalPosts / 6);
+  const endPage = Math.ceil(totalPosts / 1000);
 
   const tagList = [];
   const sub_menu_items_filter = menu_items.filter(
@@ -55,7 +55,7 @@ export default function Page({ data, menu_items, likeds, totalPosts }) {
           <TagList tags={tagList} />
         </div>
 
-        <div className="flex flex-col mt-32 min-h-screen">
+        <div className="flex flex-col mt-32 min-h-screen sm:grid sm:grid-cols-2 md:grid md:grid-cols-2 lg:grid lg:grid-cols-4">
           <div className="flex flex-grow flex-col">
             {/* {scroll} */}
             {data.map((d) => {
@@ -93,7 +93,7 @@ export async function getStaticPaths(context) {
 }
 
 export async function getStaticProps({ params }) {
-  const limit = 6;
+  const limit = 1000;
   const start = params.id - 1;
   const end = params.id;
 

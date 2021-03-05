@@ -15,7 +15,7 @@ export default function Home({
   totalPosts,
 }) {
   const tagList = [];
-  const endPage = Math.ceil(totalPosts / 6);
+  const endPage = Math.ceil(totalPosts / 1000);
 
   menu_sub_items.map((key) => {
     tagList.push({
@@ -35,12 +35,12 @@ export default function Home({
   return (
     <>
       <div className="flex flex-col">
-        <div className="w-screen fixed min-h-scren z-10">
+        <div className="w-screen fixed min-h-scren z-10 ">
           <Navbar menu_items={menu_items} />
           <TagList tags={tagList} />
         </div>
 
-        <div className="flex flex-col mt-32 min-h-screen">
+        <div className="flex flex-col mt-32 min-h-screen sm:grid sm:grid-cols-2 md:grid md:grid-cols-2 lg:grid lg:grid-cols-4">
           {data.map((d, i) => {
             return (
               <Cards
@@ -51,9 +51,10 @@ export default function Home({
               />
             );
           })}
-          <div className="flex">
+
+          {/* <div className="flex">
             <Pagination endPage={endPage} />
-          </div>
+          </div> */}
         </div>
 
         <div className=" w-screen left-0 bottom-0 z-0">
@@ -76,7 +77,7 @@ export default function Home({
 // }
 
 export async function getStaticProps(context) {
-  const limit = 6;
+  const limit = 1000;
   const start = 0;
   const end = 1;
 

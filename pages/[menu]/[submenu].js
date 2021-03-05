@@ -9,7 +9,7 @@ import Pagination from "../../components/Pagination";
 
 export default function Page({ data, menu_items, likeds, totalPosts }) {
   const router = useRouter();
-  const endPage = Math.ceil(totalPosts / 6);
+  const endPage = Math.ceil(totalPosts / 1000);
 
   // if (data !== undefined) {
   //   data = [...data];
@@ -51,7 +51,7 @@ export default function Page({ data, menu_items, likeds, totalPosts }) {
           <TagList tags={tagList} />
         </div>
 
-        <div className="flex flex-col mt-32 min-h-screen">
+        <div className="flex flex-col mt-32 min-h-screen sm:grid sm:grid-cols-2 md:grid md:grid-cols-2 lg:grid lg:grid-cols-4">
           {data.map((d) => {
             return (
               <Cards
@@ -62,9 +62,9 @@ export default function Page({ data, menu_items, likeds, totalPosts }) {
               />
             );
           })}
-          <div className="flex">
+          {/* <div className="flex">
             <Pagination endPage={endPage} />
-          </div>
+          </div> */}
         </div>
 
         <div className=" w-screen left-0 bottom-0 z-0">
@@ -80,6 +80,60 @@ export async function getStaticPaths(context) {
     paths: [
       { params: { menu: "status", submenu: "alone" } },
       { params: { menu: "status", submenu: "latest" } },
+      { params: { menu: "status", submenu: "attitude" } },
+      { params: { menu: "status", submenu: "sad" } },
+      { params: { menu: "status", submenu: "love" } },
+      { params: { menu: "status", submenu: "hate" } },
+      { params: { menu: "status", submenu: "cute" } },
+      { params: { menu: "status", submenu: "miss%20you" } },
+      { params: { menu: "status", submenu: "cry" } },
+      { params: { menu: "status", submenu: "pain" } },
+      { params: { menu: "status", submenu: "hurt" } },
+      { params: { menu: "status", submenu: "angry" } },
+      { params: { menu: "status", submenu: "sorry" } },
+      { params: { menu: "status", submenu: "cheat" } },
+      { params: { menu: "status", submenu: "flirt" } },
+      { params: { menu: "status", submenu: "breakup" } },
+      { params: { menu: "status", submenu: "life" } },
+      { params: { menu: "status", submenu: "faith" } },
+      { params: { menu: "status", submenu: "gym" } },
+      { params: { menu: "status", submenu: "busy" } },
+      { params: { menu: "status", submenu: "exam" } },
+      { params: { menu: "status", submenu: "rain" } },
+      { params: { menu: "status", submenu: "crush" } },
+      { params: { menu: "status", submenu: "funny" } },
+      { params: { menu: "status", submenu: "music" } },
+      { params: { menu: "status", submenu: "short" } },
+      { params: { menu: "status", submenu: "selfie" } },
+      { params: { menu: "status", submenu: "single" } },
+      { params: { menu: "status", submenu: "emotional" } },
+      { params: { menu: "status", submenu: "devotional" } },
+      { params: { menu: "status", submenu: "techonlogy" } },
+      { params: { menu: "status", submenu: "school" } },
+      { params: { menu: "status", submenu: "friends" } },
+      { params: { menu: "status", submenu: "thanks" } },
+      { params: { menu: "status", submenu: "naughty" } },
+      { params: { menu: "status", submenu: "heart" } },
+      { params: { menu: "status", submenu: "happiness" } },
+      { params: { menu: "birthday", submenu: "girlfriend" } },
+      { params: { menu: "birthday", submenu: "boyfriend" } },
+      { params: { menu: "birthday", submenu: "mom" } },
+      { params: { menu: "birthday", submenu: "dad" } },
+      { params: { menu: "birthday", submenu: "brother" } },
+      { params: { menu: "birthday", submenu: "sister" } },
+      { params: { menu: "birthday", submenu: "son" } },
+      { params: { menu: "birthday", submenu: "daughter" } },
+      { params: { menu: "birthday", submenu: "wife" } },
+      { params: { menu: "birthday", submenu: "husband" } },
+      { params: { menu: "birthday", submenu: "bestfriend" } },
+      { params: { menu: "birthday", submenu: "teacher" } },
+      { params: { menu: "birthday", submenu: "student" } },
+      { params: { menu: "birthday", submenu: "boss" } },
+      { params: { menu: "festival", submenu: "christmas" } },
+      { params: { menu: "festival", submenu: "holi" } },
+      { params: { menu: "festival", submenu: "diwali" } },
+      { params: { menu: "festival", submenu: "newyear" } },
+      { params: { menu: "motivational", submenu: "elonmusk" } },
     ],
     // fallback: false,
     fallback: true,
@@ -87,7 +141,7 @@ export async function getStaticPaths(context) {
 }
 
 export async function getStaticProps({ params }) {
-  const limit = 6;
+  const limit = 1000;
   const start = 0;
   const end = 1;
 
