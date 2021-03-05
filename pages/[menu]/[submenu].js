@@ -108,7 +108,7 @@ export async function getStaticPaths(context) {
       { params: { menu: "status", submenu: "single" } },
       { params: { menu: "status", submenu: "emotional" } },
       { params: { menu: "status", submenu: "devotional" } },
-      { params: { menu: "status", submenu: "techonlogy" } },
+      { params: { menu: "status", submenu: "technology" } },
       { params: { menu: "status", submenu: "school" } },
       { params: { menu: "status", submenu: "friends" } },
       { params: { menu: "status", submenu: "thanks" } },
