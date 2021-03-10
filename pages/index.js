@@ -6,6 +6,7 @@ import TagList from "../components/TagList";
 import Footer from "../components/Footer";
 import Page from "./[menu]/[submenu]/[id]";
 import Head from "next/head";
+import { useMediaQuery } from "react-responsive";
 
 export default function Home({
   data,
@@ -16,6 +17,17 @@ export default function Home({
 }) {
   const tagList = [];
   const endPage = Math.ceil(totalPosts / 1000);
+
+  const isDesktop = useMediaQuery({
+    query: "(min-width: 1640px)",
+  });
+  const isTablet = useMediaQuery({
+    query: "(min-width: 641px)",
+    query: "(max-width: 1024px)",
+  });
+  const isMobile = useMediaQuery({
+    query: "(max-width: 640px)",
+  });
 
   menu_sub_items.map((key) => {
     tagList.push({
@@ -32,35 +44,43 @@ export default function Home({
     }
   }
 
+  const MobileLayout = (
+    <div className="flex flex-col">
+      <div className="w-screen fixed min-h-scren z-10 ">
+        <Navbar menu_items={menu_items} />
+        <TagList tags={tagList} />
+      </div>
+
+      <div className="flex flex-col mt-32 min-h-screen sm:grid sm:grid-cols-2 md:grid md:grid-cols-2 lg:grid lg:grid-cols-4">
+        {data.map((d, i) => {
+          return (
+            <Cards
+              key={i}
+              id={d.id}
+              text={d.text}
+              like={likeds.find((e) => findLike(e, d.id))}
+            />
+          );
+        })}
+
+        {/* <div className="flex">
+    <Pagination endPage={endPage} />
+  </div> */}
+      </div>
+
+      <div className=" w-screen left-0 bottom-0 z-0">
+        <Footer />
+      </div>
+    </div>
+  );
+
   return (
     <>
-      <div className="flex flex-col">
-        <div className="w-screen fixed min-h-scren z-10 ">
-          <Navbar menu_items={menu_items} />
-          <TagList tags={tagList} />
-        </div>
+      {/* {isMobile && MobileLayout} */}
+      {MobileLayout}
 
-        <div className="flex flex-col mt-32 min-h-screen sm:grid sm:grid-cols-2 md:grid md:grid-cols-2 lg:grid lg:grid-cols-4">
-          {data.map((d, i) => {
-            return (
-              <Cards
-                key={i}
-                id={d.id}
-                text={d.text}
-                like={likeds.find((e) => findLike(e, d.id))}
-              />
-            );
-          })}
-
-          {/* <div className="flex">
-            <Pagination endPage={endPage} />
-          </div> */}
-        </div>
-
-        <div className=" w-screen left-0 bottom-0 z-0">
-          <Footer />
-        </div>
-      </div>
+      {/* {isDesktop && <div>Hello Desktop</div>}
+      {isTablet && <div>Hello Tablet</div>} */}
     </>
   );
 }
@@ -88,7 +108,6 @@ export async function getStaticProps(context) {
   const menu_sub_items = await fetchAPI("/menu-sub-items");
   const likeds = await fetchAPI("/likeds");
   const path = "/tags?tag=" + "latest";
-  // const data = await fetchAPI(path);
   const dataTemp = await fetchAPI(path);
 
   const postData = dataTemp[0].posts;

@@ -115,20 +115,20 @@ export async function getStaticPaths(context) {
       { params: { menu: "status", submenu: "naughty" } },
       { params: { menu: "status", submenu: "heart" } },
       { params: { menu: "status", submenu: "happiness" } },
-      // { params: { menu: "birthday", submenu: "girlfriend" } },
-      // { params: { menu: "birthday", submenu: "boyfriend" } },
-      // { params: { menu: "birthday", submenu: "mom" } },
-      // { params: { menu: "birthday", submenu: "dad" } },
-      // { params: { menu: "birthday", submenu: "brother" } },
-      // { params: { menu: "birthday", submenu: "sister" } },
-      // { params: { menu: "birthday", submenu: "son" } },
-      // { params: { menu: "birthday", submenu: "daughter" } },
-      // { params: { menu: "birthday", submenu: "wife" } },
-      // { params: { menu: "birthday", submenu: "husband" } },
-      // { params: { menu: "birthday", submenu: "bestfriend" } },
-      // { params: { menu: "birthday", submenu: "teacher" } },
-      // { params: { menu: "birthday", submenu: "student" } },
-      // { params: { menu: "birthday", submenu: "boss" } },
+      { params: { menu: "birthday", submenu: "girlfriend" } },
+      { params: { menu: "birthday", submenu: "boyfriend" } },
+      { params: { menu: "birthday", submenu: "mom" } },
+      { params: { menu: "birthday", submenu: "dad" } },
+      { params: { menu: "birthday", submenu: "brother" } },
+      { params: { menu: "birthday", submenu: "sister" } },
+      { params: { menu: "birthday", submenu: "son" } },
+      { params: { menu: "birthday", submenu: "daughter" } },
+      { params: { menu: "birthday", submenu: "wife" } },
+      { params: { menu: "birthday", submenu: "husband" } },
+      { params: { menu: "birthday", submenu: "bestfriend" } },
+      { params: { menu: "birthday", submenu: "teacher" } },
+      { params: { menu: "birthday", submenu: "student" } },
+      { params: { menu: "birthday", submenu: "boss" } },
       { params: { menu: "festival", submenu: "christmas" } },
       { params: { menu: "festival", submenu: "holi" } },
       { params: { menu: "festival", submenu: "diwali" } },
@@ -167,7 +167,7 @@ export async function getStaticProps({ params }) {
 
   const title =
     params.submenu +
-    " status for whatsapp,instagram,fb,signal,snapchap-The Status Wiki";
+    " status for whatsapp,instagram,fb,signal,snapchat-The Status Wiki";
   const descr =
     "Best " +
     params.submenu +
