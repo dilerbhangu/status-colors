@@ -121,11 +121,11 @@ export async function getStaticProps(context) {
     };
   }
 
-  const title = "The Status Wiki";
+  const title = "Best Social Media Status-The Status Wiki";
   const descr =
-    "The Status Wiki is one of largest library of best status all around the world.You can find status as per your mood. Love,Attitude,Romantic,Hate etc. we've tried to cover every possible combination of various status ";
+    "The Status Wiki is one of largest library of best,ultimate and cool status all around the world.You can find status as per your mood. Love,Attitude,Romantic,Hate etc. ";
   const keywords =
-    "Latest Status, Whatsapp Status, Instagram Status , Signal Status, Facebook Status, Romantic Status, Birthday Wishes Status";
+    "Ultimate Status, Best Social Media Quotes, Instagram and Whatsapp Status , Status for signal, Status for fb , Romantic Status, Birthday Wishes Status";
 
   return {
     props: {

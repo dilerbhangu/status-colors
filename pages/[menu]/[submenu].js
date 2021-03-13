@@ -166,8 +166,9 @@ export async function getStaticProps({ params }) {
   }
 
   const title =
+    "Best " +
     params.submenu +
-    " status for whatsapp,instagram,fb,signal,snapchat-The Status Wiki";
+    " status for social media apps in english-The Status Wiki";
   const descr =
     "Best " +
     params.submenu +
