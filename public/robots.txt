@@ -1,0 +1,51 @@
+User-agent: Googlebot
+Disallow:
+
+User-agent: AdsBot-Google
+Disallow:
+
+User-agent: Googlebot-Image
+Disallow:
+
+User-agent: Bingbot
+Disallow:
+
+User-agent: DuckDuckBot
+Disallow:
+
+User-agent: Yandexbot
+Disallow:
+
+User-agent: Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)
+Disallow:
+
+User-agent: Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.96 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)
+Disallow:
+
+# https://ahrefs.com/robot
+User-agent: AhrefsBot
+Disallow: /
+
+# Alexa
+User-agent: ia_archiver
+Disallow: /
+
+# https://www.semrush.com/
+User-agent: SemrushBot
+Disallow: /
+
+# https://www.seoprofiler.com/auditbot
+User-agent: sp_auditbot
+Disallow: /
+
+# https://majestic.com/
+User-agent: MJ12bot
+Disallow: /
+
+# http://moz.com/
+User-agent: dotbot
+Disallow: /
+
+# http://openlinkprofiler.org/
+User-agent: spbot
+Disallow: /
